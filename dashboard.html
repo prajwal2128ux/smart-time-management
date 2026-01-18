@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Planner</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+  <ul>
+    <li onclick="show('planner')">📅 Planner</li>
+    <li onclick="show('stats')">📊 Stats</li>
+    <li onclick="show('habits')">🔁 Habits</li>
+    <li onclick="show('settings')">⚙ Settings</li>
+    <li onclick="logout()">🚪 Logout</li>
+  </ul>
+</aside>
+
+<main class="main">
+
+<div id="planner" class="section active">
+  <h2>Planner</h2>
+  <button id="addBtn">➕ Add Task</button>
+  <div class="time-grid" id="grid"></div>
+</div>
+
+<div id="stats" class="section">
+  <h2>📊 Stats</h2>
+  <p>Productivity view</p>
+</div>
+
+<div id="habits" class="section">
+  <h2>🔁 Habits</h2>
+  <p>🌅 Morning Exercise</p>
+  <p>📖 Read a Book</p>
+</div>
+
+<div id="settings" class="section">
+  <h2>⚙ Settings</h2>
+</div>
+
+</main>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3>Add Task</h3>
+    <input id="title" placeholder="Task name">
+    <select id="priority">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+    <select id="slot"></select>
+    <button onclick="saveTask()">Save</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script src="js/planner.js"></script>
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function logout(){ location.href="login.html"; }
+</script>
+</body>
+</html>
